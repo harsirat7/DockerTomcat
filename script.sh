@@ -42,6 +42,7 @@ docker run -d --name memcached --network app_network -p 11211:11211 memcached:la
 cd ..
 cd nginx/
 mv nginx.txt nginx.conf
+sed -i '1s/^\xEF\xBB\xBF//' nginx.conf
 mv Dockerfile.txt Dockerfile
 docker build -t nginx .
 docker run -d --name nginx --network app_network -p 80:80 nginx:latest
