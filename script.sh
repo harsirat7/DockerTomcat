@@ -38,6 +38,17 @@ mv Dockerfile.txt Dockerfile
 docker build -t memcached .
 docker run -d --name memcached --network app_network -p 11211:11211 memcached:latest
 
+#Tomcat
+cd ..
+cd tomcat/
+git clone https://github.com/rersharma/Adanace_Java_Project_using_vagrant_machines.git
+mv Adanace_Java_Project_using_vagrant_machines project
+mv Dockerfile.txt Dockerfile
+docker build -t tomcat .
+docker run -d --name tomcat --network app_network -p 8080:8080 tomcat:latest
+
+
+
 #Ngnix
 cd ..
 cd nginx/
@@ -48,14 +59,6 @@ docker build -t nginx .
 docker run -d --name nginx --network app_network -p 80:80 nginx:latest
 
 
-#Tomcat
-cd ..
-cd tomcat/
-git clone https://github.com/rersharma/Adanace_Java_Project_using_vagrant_machines.git
-mv Adanace_Java_Project_using_vagrant_machines project
-mv Dockerfile.txt Dockerfile
-docker build -t tomcat .
-docker run -d --name tomcat --network app_network -p 8080:8080 tomcat:latest
 cd ..
 cd ..
 rm -rf DockerTomcat
